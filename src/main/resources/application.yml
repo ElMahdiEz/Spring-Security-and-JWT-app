@@ -1,0 +1,25 @@
+hibernate:
+    connection:
+        driver_class: org.postgresql.Driver
+
+spring:
+    datasource:
+        password: admin
+        platform: postgresql
+        url: jdbc:postgresql://localhost:5432/SecurityDB
+        username: postgres
+    jpa:
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update # create, update, create-drop
+        properties:
+            hibernate:
+                archive:
+                    autodetection: class
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+
+auth:
+    expiration: 604800 # Expiration du token après 7 jours
+    secret: APISecret
+    header: Authorization
